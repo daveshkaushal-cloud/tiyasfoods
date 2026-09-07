@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 pb-16 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <div className="inline-flex rounded-[28px] bg-[#FFF8E8] p-4 shadow-[0_18px_45px_rgba(0,0,0,0.2)]">
+            <div className="inline-flex items-center">
               <BrandLogo className="w-52 max-w-full" />
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-stone-400">
