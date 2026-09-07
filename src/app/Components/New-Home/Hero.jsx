@@ -14,7 +14,11 @@ export default function Hero() {
   return (
     <section id="top" ref={ref} className="relative h-screen w-full overflow-hidden">
       <motion.div style={{ y: yBg, scale }} className="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1600&q=80" alt="" className="h-full w-full object-cover opacity-40" />
+        <img
+          src="/assets/hero-section-1.jpeg"
+          alt="Tiyas Foods A2 Bilona Ghee being poured in a warm kitchen setting"
+          className="h-full w-full object-cover opacity-55"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09] via-[#0c0a09]/50 to-[#0c0a09]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#0c0a09_85%)]" />
       </motion.div>
@@ -34,15 +38,6 @@ export default function Hero() {
         style={{ y: yText, opacity }}
         className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
       >
-        {/* <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="mb-6 rounded-full border border-amber-400/30 bg-amber-400/10 px-5 py-2 text-xs font-medium uppercase tracking-[0.3em] text-amber-200"
-        >
-          Tiyas Food · Pure by Tradition
-        </motion.span> */}
-
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -94,10 +89,7 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        style={{ opacity }}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
-      >
+      <motion.div style={{ opacity }} className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
         <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 p-2">
           <motion.svg
             xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +105,6 @@ export default function Hero() {
           </motion.svg>
         </div>
       </motion.div>
-
     </section>
   )
 }
