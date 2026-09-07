@@ -67,10 +67,10 @@ export default function Header() {
                 </div>
 
                 <div className="mx-auto flex h-19 max-w-7xl items-center justify-between px-5 md:px-8">
-                    <Link href="/" className="group inline-flex items-center rounded-2xl bg-[#FFF8E8]/95 px-3 py-1.5 shadow-[0_8px_30px_rgba(0,0,0,0.16)] backdrop-blur-sm transition hover:bg-[#FFFDF5]">
+                    <Link href="/" className="group inline-flex items-center">
                         <BrandLogo
                             variant="header"
-                            className="h-[52px] w-auto transition-transform duration-300 group-hover:scale-[1.02]"
+                            className="h-[58px] w-auto transition-transform duration-300 group-hover:scale-[1.02]"
                         />
                     </Link>
 
@@ -118,8 +118,8 @@ export default function Header() {
 
             <div ref={menuRef} className="fixed right-0 top-0 z-60 flex h-screen w-[88%] translate-x-full flex-col bg-[#0f0d0a] p-7 shadow-2xl md:hidden">
                 <div className="flex items-center justify-between gap-4">
-                    <Link href="/" onClick={() => setMenuOpen(false)} className="inline-flex rounded-2xl bg-[#FFF8E8] px-3 py-2">
-                        <BrandLogo variant="header" className="h-12 w-auto" />
+                    <Link href="/" onClick={() => setMenuOpen(false)} className="inline-flex items-center">
+                        <BrandLogo variant="header" className="h-14 w-auto" />
                     </Link>
                     <button onClick={() => setMenuOpen(false)} className="grid h-10 w-10 place-items-center rounded-full border border-white/10"><X size={20} /></button>
                 </div>
