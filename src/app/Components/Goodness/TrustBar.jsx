@@ -1,10 +1,5 @@
-import {
-  Leaf,
-  FlaskConical,
-  Truck,
-  Milk,
-} from "lucide-react";
-import data from '../../../../data.json'
+import { Leaf, FlaskConical, Truck, Milk } from "lucide-react";
+import data from "../../../../data.json";
 
 const iconMap = { Leaf, Milk, FlaskConical, Truck };
 const benefits = (data.trustBenefits || []).map((b) => ({
@@ -12,38 +7,38 @@ const benefits = (data.trustBenefits || []).map((b) => ({
   icon: iconMap[b.icon] || Leaf,
 }));
 
+const tileStyles = [
+  { bg: "#F1B54D", text: "#2D3427", iconBg: "#FFF1C9" },
+  { bg: "#A7BF7B", text: "#26382A", iconBg: "#EDF4DA" },
+  { bg: "#D9794D", text: "#FFF8EC", iconBg: "#F7C7AF" },
+  { bg: "#7A5260", text: "#FFF7F0", iconBg: "#E4CBD2" },
+];
+
 export default function TrustBar() {
   return (
-    <section className="relative z-20 px-6">
-      <div className="mx-auto max-w-6xl rounded-3xl border border-white/10 bg-[#15120e]/90 p-6 backdrop-blur-xl md:p-8">
-        <div className="grid grid-cols-2 divide-x divide-white/10 md:grid-cols-4">
-          {benefits.map((item) => {
-            const Icon = item.icon;
+    <section className="relative z-20 bg-[#F7EEDC] px-6 py-8">
+      <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {benefits.map((item, index) => {
+          const Icon = item.icon;
+          const style = tileStyles[index % tileStyles.length];
 
-            return (
+          return (
+            <div
+              key={item.title}
+              className="rounded-[28px] p-5 shadow-[0_16px_35px_rgba(77,54,32,0.08)] transition hover:-translate-y-1"
+              style={{ backgroundColor: style.bg, color: style.text }}
+            >
               <div
-                key={item.title}
-                className="flex items-center gap-4 px-4 py-4 md:px-6"
+                className="grid h-12 w-12 place-items-center rounded-2xl"
+                style={{ backgroundColor: style.iconBg }}
               >
-                <Icon
-                  size={27}
-                  strokeWidth={1.5}
-                  className="shrink-0 text-[#f5b82e]"
-                />
-
-                <div>
-                  <p className="text-sm font-semibold">
-                    {item.title}
-                  </p>
-
-                  <p className="mt-1 text-[11px] text-stone-500">
-                    {item.description}
-                  </p>
-                </div>
+                <Icon size={23} strokeWidth={1.7} />
               </div>
-            );
-          })}
-        </div>
+              <p className="mt-5 font-serif text-2xl leading-tight">{item.title}</p>
+              <p className="mt-2 text-xs leading-5 opacity-75">{item.description}</p>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
