@@ -12,6 +12,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import data from "../../../data.json";
 import { useCart } from "@/context/CartContext";
+import BrandLogo from "./BrandLogo";
 
 const links = data.navLinks || [];
 
@@ -66,12 +67,11 @@ export default function Header() {
                 </div>
 
                 <div className="mx-auto flex h-19 max-w-7xl items-center justify-between px-5 md:px-8">
-                    <Link href="/" className="group flex items-center gap-3">
-                        <div className="grid h-12 w-12 place-items-center rounded-full gold-gradient text-lg font-black text-[#0c0a09] shadow-lg shadow-[#f5b82e]/20 transition-transform duration-300 group-hover:scale-110">T</div>
-                        <div>
-                            <div className="text-[18px] font-semibold tracking-[0.16em]">TIYAS <span className="text-[#f5b82e]">FOOD</span></div>
-                            <div className="hidden text-[8px] tracking-[0.3em] text-stone-500 sm:block">PURE. NATURAL. YOURS.</div>
-                        </div>
+                    <Link href="/" className="group inline-flex items-center rounded-2xl bg-[#FFF8E8]/95 px-3 py-1.5 shadow-[0_8px_30px_rgba(0,0,0,0.16)] backdrop-blur-sm transition hover:bg-[#FFFDF5]">
+                        <BrandLogo
+                            variant="header"
+                            className="h-[52px] w-auto transition-transform duration-300 group-hover:scale-[1.02]"
+                        />
                     </Link>
 
                     <div className="hidden items-center gap-7 lg:flex">
@@ -117,11 +117,10 @@ export default function Header() {
             </nav>
 
             <div ref={menuRef} className="fixed right-0 top-0 z-60 flex h-screen w-[88%] translate-x-full flex-col bg-[#0f0d0a] p-7 shadow-2xl md:hidden">
-                <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <div className="grid h-9 w-9 place-items-center rounded-full gold-gradient font-bold text-[#0c0a09]">T</div>
-                        <span className="text-sm font-semibold tracking-[0.15em]">TIYAS <span className="text-[#f5b82e]">FOOD</span></span>
-                    </div>
+                <div className="flex items-center justify-between gap-4">
+                    <Link href="/" onClick={() => setMenuOpen(false)} className="inline-flex rounded-2xl bg-[#FFF8E8] px-3 py-2">
+                        <BrandLogo variant="header" className="h-12 w-auto" />
+                    </Link>
                     <button onClick={() => setMenuOpen(false)} className="grid h-10 w-10 place-items-center rounded-full border border-white/10"><X size={20} /></button>
                 </div>
 
