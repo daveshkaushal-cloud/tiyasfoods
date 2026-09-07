@@ -1,6 +1,7 @@
 import "./globals.css";
 import AppShell from "./Components/AppShell";
 import { AuthProvider } from "@/context/AuthContext";
+import { CartProvider } from "@/context/CartContext";
 
 export const metadata = {
   title: "TIYAS FOOD | Pure. Natural. Yours.",
@@ -16,11 +17,11 @@ export default function RootLayout({ children }) {
       data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col">
-          <AppShell>
-            <AuthProvider>
-              {children}
-            </AuthProvider>
-          </AppShell>
+        <AuthProvider>
+          <CartProvider>
+            <AppShell>{children}</AppShell>
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );
