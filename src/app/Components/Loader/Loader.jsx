@@ -14,115 +14,24 @@ export default function Loader({ loading = true }) {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.set(logoRef.current, {
-                opacity: 0,
-                y: 30,
-                scale: 0.94,
-            });
-
-            gsap.set(textRef.current, {
-                opacity: 0,
-                y: 10,
-            });
-
-            gsap.set(lineRef.current, {
-                scaleX: 0,
-                transformOrigin: "left center",
-            });
-
-            gsap.set(arcRef.current, {
-                opacity: 0,
-                scale: 0.8,
-            });
+            gsap.set(logoRef.current, { opacity: 0, y: 30, scale: 0.94 });
+            gsap.set(textRef.current, { opacity: 0, y: 10 });
+            gsap.set(lineRef.current, { scaleX: 0, transformOrigin: "left center" });
+            gsap.set(arcRef.current, { opacity: 0, scale: 0.8 });
 
             const intro = gsap.timeline();
-
             intro
-                .to(logoRef.current, {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    duration: 1,
-                    ease: "power4.out",
-                })
-                .to(
-                    textRef.current,
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.6,
-                        ease: "power3.out",
-                    },
-                    "-=0.35"
-                )
-                .to(
-                    lineRef.current,
-                    {
-                        scaleX: 0.7,
-                        duration: 1.5,
-                        ease: "power2.out",
-                    },
-                    "-=0.2"
-                )
-                .to(
-                    arcRef.current,
-                    {
-                        opacity: 1,
-                        scale: 1,
-                        duration: 0.8,
-                        ease: "power3.out",
-                    },
-                    "-=1"
-                );
+                .to(logoRef.current, { opacity: 1, y: 0, scale: 1, duration: 1, ease: "power4.out" })
+                .to(textRef.current, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, "-=0.35")
+                .to(lineRef.current, { scaleX: 0.7, duration: 1.5, ease: "power2.out" }, "-=0.2")
+                .to(arcRef.current, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out" }, "-=1");
 
-            gsap.to(".loader-ring-1", {
-                scale: 1.18,
-                opacity: 0.16,
-                duration: 2.6,
-                ease: "sine.inOut",
-                repeat: -1,
-                yoyo: true,
-            });
-
-            gsap.to(".loader-ring-2", {
-                scale: 0.82,
-                opacity: 0.08,
-                duration: 2.1,
-                ease: "sine.inOut",
-                repeat: -1,
-                yoyo: true,
-            });
-
-            gsap.to(".loader-ring-3", {
-                scale: 1.1,
-                opacity: 0.05,
-                duration: 3.2,
-                ease: "sine.inOut",
-                repeat: -1,
-                yoyo: true,
-            });
-
-            gsap.to(glowRef.current, {
-                scale: 1.3,
-                opacity: 0.75,
-                duration: 2.8,
-                ease: "sine.inOut",
-                repeat: -1,
-                yoyo: true,
-            });
-
-            gsap.to(arcRef.current, {
-                rotation: 360,
-                duration: 8,
-                ease: "none",
-                repeat: -1,
-            });
-
-            gsap.to(lineRef.current, {
-                scaleX: 0.88,
-                duration: 4,
-                ease: "power2.out",
-            });
+            gsap.to(".loader-ring-1", { scale: 1.18, opacity: 0.16, duration: 2.6, ease: "sine.inOut", repeat: -1, yoyo: true });
+            gsap.to(".loader-ring-2", { scale: 0.82, opacity: 0.08, duration: 2.1, ease: "sine.inOut", repeat: -1, yoyo: true });
+            gsap.to(".loader-ring-3", { scale: 1.1, opacity: 0.05, duration: 3.2, ease: "sine.inOut", repeat: -1, yoyo: true });
+            gsap.to(glowRef.current, { scale: 1.3, opacity: 0.75, duration: 2.8, ease: "sine.inOut", repeat: -1, yoyo: true });
+            gsap.to(arcRef.current, { rotation: 360, duration: 8, ease: "none", repeat: -1 });
+            gsap.to(lineRef.current, { scaleX: 0.88, duration: 4, ease: "power2.out" });
         }, loaderRef);
 
         return () => ctx.revert();
@@ -137,8 +46,8 @@ export default function Loader({ loading = true }) {
             <div ref={arcRef} className="pointer-events-none absolute left-1/2 top-1/2 h-85 w-85 -translate-x-1/2 -translate-y-1/2 rounded-full border border-transparent border-t-[#f5b82e]/40 border-r-[#f5b82e]/10" />
 
             <div className="relative z-10 w-80 text-center">
-                <div ref={logoRef} className="mx-auto inline-flex rounded-[28px] bg-[#FFF8E8] p-4 shadow-[0_20px_60px_rgba(0,0,0,0.28)]">
-                    <BrandLogo className="w-52 max-w-full" />
+                <div ref={logoRef} className="mx-auto inline-flex items-center justify-center">
+                    <BrandLogo className="w-56 max-w-full" />
                 </div>
 
                 <div ref={textRef} className="mt-10">
