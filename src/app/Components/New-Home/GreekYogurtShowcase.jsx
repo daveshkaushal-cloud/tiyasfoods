@@ -2,83 +2,70 @@
 
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 'framer-motion'
 import { useRef, useState } from 'react'
-import {
-  Dumbbell,
-  Droplets,
-  Sparkles,
-  ShieldCheck,
-  Leaf,
-  HeartPulse,
-  Sun,
-  Zap,} from 'lucide-react'
+import { Dumbbell, Droplets, Sparkles, ShieldCheck, Leaf, HeartPulse, Sun, Zap } from 'lucide-react'
 
 const products = [
   {
     name: 'Original Plain',
     flavor: 'Classic',
     tagline: 'The purest form of thick, creamy goodness.',
-    img: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=80',
+    img: '/assets/home-yogurt-product.webp',
     accent: 'text-lime-300',
     halo: 'bg-lime-500/40',
     benefits: [
-      { icon: Dumbbell, title: '15g High Protein', text: 'More protein per serving than most protein bars — naturally.' },
-      { icon: Droplets, title: 'Thick & Creamy Texture', text: 'Strained the traditional Greek way for an ultra-rich mouthfeel.' },
-      { icon: ShieldCheck, title: 'Zero Added Sugar', text: 'No sweeteners, no shortcuts. Just the natural taste of real yogurt.' },
-      { icon: Leaf, title: 'Gut-Friendly Probiotics', text: 'Live active cultures that nourish your digestive system daily.' },
+      { icon: Dumbbell, title: 'High Protein', text: 'A satisfying dairy option designed to support an everyday balanced routine.' },
+      { icon: Droplets, title: 'Thick & Creamy Texture', text: 'Strained for a rich, spoonable texture without making the experience feel heavy.' },
+      { icon: ShieldCheck, title: 'Simple Ingredients', text: 'A cleaner product story focused on familiar dairy goodness.' },
+      { icon: Leaf, title: 'Cultured Dairy', text: 'Made around a traditional cultured-dairy process and everyday freshness.' },
     ],
   },
   {
     name: 'Wild Blueberry',
-    flavor: 'Antioxidant',
-    tagline: 'Real wild blueberries folded into thick Greek yogurt.',
-    img: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=900&q=80',
+    flavor: 'Berry',
+    tagline: 'A fresh fruit-led take on thick Greek-style yogurt.',
+    img: '/assets/home-yogurt-product.webp',
     accent: 'text-indigo-300',
     halo: 'bg-indigo-500/40',
     benefits: [
-      { icon: Sparkles, title: 'Antioxidant Rich', text: 'Real wild blueberries packed with anthocyanins that fight free radicals.' },
-      { icon: Dumbbell, title: '14g Protein Per Cup', text: 'Sustained protein release keeps you full and fueled for hours.' },
-      { icon: HeartPulse, title: 'Heart-Healthy', text: 'Blueberry polyphenols support cardiovascular health naturally.' },
-      { icon: Leaf, title: 'Gut-Friendly Probiotics', text: 'Live cultures + real fruit for a happy, balanced gut.' },
+      { icon: Sparkles, title: 'Fruit-Led Flavour', text: 'A brighter flavour profile built around a creamy yogurt base.' },
+      { icon: Dumbbell, title: 'Everyday Protein', text: 'A convenient snack option for breakfast, workdays and post-workout routines.' },
+      { icon: HeartPulse, title: 'Balanced Snacking', text: 'Designed to feel satisfying without losing the freshness of cultured dairy.' },
+      { icon: Leaf, title: 'Cultured Dairy', text: 'A smooth, spoonable dairy format made for everyday enjoyment.' },
     ],
   },
   {
     name: 'Strawberry',
-    flavor: 'Vitamin C',
-    tagline: 'Sun-ripened strawberries swirled into creamy perfection.',
-    img: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=900&q=80',
+    flavor: 'Fresh Fruit',
+    tagline: 'Creamy yogurt with a familiar strawberry-led personality.',
+    img: '/assets/home-yogurt-product.webp',
     accent: 'text-rose-300',
     halo: 'bg-rose-500/40',
     benefits: [
-      { icon: Sun, title: 'Vitamin C Boost', text: 'Real strawberries deliver a natural immunity-supporting vitamin C hit.' },
-      { icon: Dumbbell, title: '14g Protein Per Cup', text: 'Clean, slow-release protein that repairs muscle and curbs cravings.' },
-      { icon: Droplets, title: 'Thick & Creamy Texture', text: 'Triple-strained for a velvety, spoonable consistency you can feel.' },
-      { icon: Leaf, title: 'Gut-Friendly Probiotics', text: 'Billions of live cultures for digestive balance and wellbeing.' },
+      { icon: Sun, title: 'Bright Flavour', text: 'A colourful, easy-to-love flavour direction for everyday snacking.' },
+      { icon: Dumbbell, title: 'Routine Friendly', text: 'Works easily as breakfast, a snack or part of a fuller meal.' },
+      { icon: Droplets, title: 'Creamy Texture', text: 'A thick, spoonable feel that keeps the product indulgent yet fresh.' },
+      { icon: Leaf, title: 'Fresh Dairy Feel', text: 'Keeps the visual and product story rooted in cultured dairy goodness.' },
     ],
   },
   {
     name: 'Mango Honey',
-    flavor: 'Energy',
-    tagline: "Alphonso mango and raw honey — nature's energy pair.",
-    img: 'https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=900&q=80',
+    flavor: 'Tropical',
+    tagline: 'A warmer mango-led yogurt flavour for a bright finish.',
+    img: '/assets/home-yogurt-product.webp',
     accent: 'text-amber-300',
     halo: 'bg-amber-500/40',
     benefits: [
-      { icon: Zap, title: 'Natural Energy', text: 'Real mango and raw honey for clean, sustained energy without the crash.' },
-      { icon: Dumbbell, title: '13g Protein Per Cup', text: 'A balanced protein dose perfect for breakfast or post-workout fuel.' },
-      { icon: Sparkles, title: 'Real Alphonso Mango', text: "India's king of mangoes, hand-picked at peak ripeness." },
-      { icon: Leaf, title: 'Gut-Friendly Probiotics', text: "Live cultures that work with honey's natural prebiotic properties." },
+      { icon: Zap, title: 'Tropical Energy', text: 'A brighter flavour direction that fits breakfast and daytime snacking.' },
+      { icon: Dumbbell, title: 'Daily Nutrition', text: 'Designed as an easy dairy option to slot into a busy routine.' },
+      { icon: Sparkles, title: 'Mango-Led Taste', text: 'A familiar Indian flavour profile paired with a creamy yogurt base.' },
+      { icon: Leaf, title: 'Cultured Dairy', text: 'A fresh, spoonable format that keeps the Tiyas dairy identity consistent.' },
     ],
   },
 ]
 
 const clamp = (v, min, max) => Math.min(max, Math.max(min, v))
 
-function Product3D({
-  product,
-  index,
-  total,
-  progress,
-}) {
+function Product3D({ product, index, total, progress }) {
   const center = index / (total - 1)
   const span = 1 / (total - 1)
   const halfSpan = span / 2
@@ -87,24 +74,20 @@ function Product3D({
     const dist = Math.abs(v - center)
     return clamp(1 - dist / halfSpan, 0, 1)
   })
-
   const scale = useTransform(progress, (v) => {
     const dist = Math.abs(v - center)
     const t = clamp(1 - dist / halfSpan, 0, 1)
-    return 0.7 + t * 0.3
+    return 0.78 + t * 0.22
   })
-
   const y = useTransform(progress, (v) => {
     const dist = Math.abs(v - center)
     const t = clamp(1 - dist / halfSpan, 0, 1)
-    return 60 - t * 60
+    return 48 - t * 48
   })
-
   const rotateY = useTransform(progress, (v) => {
     const diff = v - center
-    return clamp(diff / halfSpan, -1, 1) * 80
+    return clamp(diff / halfSpan, -1, 1) * 40
   })
-
   const haloOpacity = useTransform(progress, (v) => {
     const dist = Math.abs(v - center)
     return clamp(1 - dist / halfSpan, 0, 1) * 0.6
@@ -119,33 +102,22 @@ function Product3D({
     <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: '1200px' }}>
       <motion.div
         style={{ opacity, rotateY, scale, y, transformStyle: 'preserve-3d' }}
-        className="relative flex h-[62vh] max-h-[560px] items-center justify-center"
+        className="relative flex h-[62vh] max-h-[560px] w-[min(470px,82vw)] items-center justify-center"
       >
-        <motion.div
-          style={{ opacity: haloOpacity, scale: haloScale }}
-          className={`absolute h-[26rem] w-[26rem] rounded-full ${product.halo} blur-[90px]`}
-        />
+        <motion.div style={{ opacity: haloOpacity, scale: haloScale }} className={`absolute h-[26rem] w-[26rem] rounded-full ${product.halo} blur-[90px]`} />
         <motion.img
           src={product.img}
-          alt={`Tiyas Food Greek Yogurt — ${product.name}`}
-          className="relative z-10 h-full w-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
+          alt={`Tiyas Foods Greek Yogurt — ${product.name}`}
+          className="relative z-10 h-[76%] w-[76%] rounded-[32px] border border-white/10 object-cover shadow-2xl shadow-black/50"
           style={{ transform: 'translateZ(40px)' }}
         />
-        <div
-          className="absolute bottom-[8%] h-24 w-48 rounded-[50%] bg-black/50 blur-xl"
-          style={{ transform: 'translateZ(-20px)' }}
-        />
+        <div className="absolute bottom-[12%] h-20 w-48 rounded-[50%] bg-black/50 blur-xl" style={{ transform: 'translateZ(-20px)' }} />
       </motion.div>
     </div>
   )
 }
 
-function BenefitPanel({
-  product,
-  index,
-  total,
-  progress,
-}) {
+function BenefitPanel({ product, index, total, progress }) {
   const center = index / (total - 1)
   const halfSpan = 1 / (total - 1) / 2
 
@@ -181,15 +153,9 @@ function BenefitPanel({
   )
 }
 
-function MobileProductName({
-  product,
-  index,
-  total,
-  progress,
-}) {
+function MobileProductName({ product, index, total, progress }) {
   const center = index / (total - 1)
   const halfSpan = 1 / (total - 1) / 2
-
   const opacity = useTransform(progress, (v) => {
     const dist = Math.abs(v - center)
     return clamp(1 - dist / halfSpan, 0, 1)
@@ -221,27 +187,13 @@ export default function GreekYogurtShowcase() {
         <div className="pointer-events-none absolute left-1/4 top-0 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-lime-600/[0.08] blur-[150px]" />
         <div className="pointer-events-none absolute right-0 bottom-0 h-[32rem] w-[32rem] rounded-full bg-emerald-600/[0.06] blur-[140px]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-lime-950/25 to-transparent" />
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(132,204,22,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(132,204,22,0.5) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-            maskImage: 'radial-gradient(ellipse at center, black 20%, transparent 70%)',
-          }}
-        />
 
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           {Array.from({ length: 12 }).map((_, i) => (
             <motion.span
               key={i}
               className="absolute rounded-full bg-lime-300/40 blur-[1px]"
-              style={{
-                left: `${(i * 41) % 100}%`,
-                top: `${(i * 29) % 100}%`,
-                width: `${2 + (i % 3)}px`,
-                height: `${2 + (i % 3)}px`,
-              }}
+              style={{ left: `${(i * 41) % 100}%`, top: `${(i * 29) % 100}%`, width: `${2 + (i % 3)}px`, height: `${2 + (i % 3)}px` }}
               animate={{ y: [0, -50, 0], opacity: [0, 0.6, 0] }}
               transition={{ duration: 6 + (i % 4), repeat: Infinity, delay: i * 0.3, ease: 'easeInOut' }}
             />
@@ -275,12 +227,7 @@ export default function GreekYogurtShowcase() {
         <div className="absolute bottom-10 left-1/2 z-40 flex -translate-x-1/2 flex-col items-center gap-3">
           <div className="flex items-center gap-3">
             {products.map((prod, i) => (
-              <span
-                key={prod.name}
-                className={`h-2 rounded-full transition-all duration-500 ${
-                  active === i ? 'w-8 bg-lime-400' : 'w-2 bg-white/20'
-                }`}
-              />
+              <span key={prod.name} className={`h-2 rounded-full transition-all duration-500 ${active === i ? 'w-8 bg-lime-400' : 'w-2 bg-white/20'}`} />
             ))}
           </div>
           <div className="h-px w-48 overflow-hidden rounded-full bg-white/10">
