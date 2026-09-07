@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Check, ShoppingBag, ArrowRight, Star } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
@@ -11,11 +12,17 @@ export default function ProductCard({ product, onReadMore }) {
   return (
     <article className="product-card group overflow-hidden rounded-[30px] border border-[#DCCCAD] bg-[#FFFDF8] shadow-[0_18px_55px_rgba(94,72,43,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(94,72,43,0.12)]">
       <div className="relative aspect-[0.95] overflow-hidden bg-[#EFE4CF]">
-        <img src={product.image} alt={product.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+        {product.href ? (
+          <Link href={product.href} aria-label={`View ${product.name}`}>
+            <img src={product.image} alt={product.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+          </Link>
+        ) : (
+          <img src={product.image} alt={product.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+        )}
         <div className="absolute left-4 top-4 rounded-full bg-[#173D2D] px-3 py-1.5 text-[9px] font-bold tracking-[0.18em] text-[#FFF6DE]">
           {product.badge}
         </div>
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-[#392B1F]/55 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-[#392B1F]/55 to-transparent" />
         <div className="absolute bottom-5 left-5 right-5">
           <button
             onClick={() => addToCart(product)}
@@ -29,12 +36,24 @@ export default function ProductCard({ product, onReadMore }) {
 
       <div className="p-5 sm:p-6">
         <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#B66A3C]">{product.category}</p>
-        <h3 className="mt-2 font-serif text-2xl leading-tight text-[#2E3F2E]">{product.name}</h3>
+        {product.href ? (
+          <Link href={product.href} className="block">
+            <h3 className="mt-2 font-serif text-2xl leading-tight text-[#2E3F2E] transition group-hover:text-[#477453]">{product.name}</h3>
+          </Link>
+        ) : (
+          <h3 className="mt-2 font-serif text-2xl leading-tight text-[#2E3F2E]">{product.name}</h3>
+        )}
         <p className="mt-3 line-clamp-2 text-sm leading-6 text-[#756B5F]">{product.description}</p>
 
-        <button onClick={onReadMore} className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#477453] transition hover:text-[#2E5E3B]">
-          Read more <ArrowRight size={13} />
-        </button>
+        {product.href ? (
+          <Link href={product.href} className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#477453] transition hover:text-[#2E5E3B]">
+            View product <ArrowRight size={13} />
+          </Link>
+        ) : (
+          <button onClick={onReadMore} className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#477453] transition hover:text-[#2E5E3B]">
+            Read more <ArrowRight size={13} />
+          </button>
+        )}
 
         <div className="mt-5 flex items-center gap-2">
           <div className="flex items-center gap-1 text-[#C58C2B]">
