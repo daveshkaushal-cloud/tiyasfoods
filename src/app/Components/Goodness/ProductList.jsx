@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight, ShoppingBag } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import data from "../../../../data.json";
 
@@ -11,13 +11,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const products = data.products || [];
 
+const cardThemes = [
+  { bg: "#F2C45A", text: "#2D3529", route: "/Products" },
+  { bg: "#A9BE7A", text: "#2C3C2B", route: "/Products/yogurt" },
+  { bg: "#D8794D", text: "#FFF7EC", route: "/Products/whey-protein" },
+];
+
 export default function ProductList() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".product-card", {
-        y: 70,
+      gsap.from(".goodness-product-card", {
+        y: 60,
         opacity: 0,
         duration: 0.8,
         stagger: 0.12,
@@ -34,168 +40,71 @@ export default function ProductList() {
   }, []);
 
   return (
-    <section
-      id="products"
-      ref={sectionRef}
-      className="px-6 py-28"
-    >
+    <section ref={sectionRef} className="bg-[#FFF8EB] px-6 py-24 lg:py-28">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-
+        <div className="mb-14 flex flex-col justify-between gap-7 md:flex-row md:items-end">
           <div>
-            <p className="mb-4 text-xs font-semibold tracking-[0.3em] text-[#f5b82e]">
-              OUR COLLECTION
-            </p>
-
-            <h2 className="font-display text-4xl md:text-6xl">
-              Goodness in
-              <span className="text-[#f5b82e]">
-                {" "}
-                every bite.
-              </span>
+            <p className="text-xs font-semibold tracking-[0.3em] text-[#B65F3D]">OUR COLLECTION</p>
+            <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight text-[#234735] md:text-6xl">
+              Different kinds of goodness.
+              <span className="block text-[#D26F45]">One thoughtful pantry.</span>
             </h2>
           </div>
 
-          <Link
-            href="/Products"
-            className="group flex items-center gap-2 text-sm text-stone-400 transition-colors duration-300 hover:text-[#f5b82e]"
-          >
-            View all products
-
-            <span className="grid h-8 w-8 place-items-center rounded-full border border-white/10 transition-all duration-300 group-hover:border-[#f5b82e]/50 group-hover:bg-[#f5b82e] group-hover:text-[#0c0a09]">
-              <ArrowUpRight
-                size={17}
-                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              />
+          <Link href="/Products" className="group inline-flex items-center gap-2 text-sm font-semibold text-[#315B45]">
+            Explore the shop
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-[#315B45] text-white transition group-hover:translate-x-1">
+              <ArrowUpRight size={16} />
             </span>
           </Link>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
-          {products.map((product) => (
-            <div
-              key={product.name}
-              className="
-                product-card
-                group
-                overflow-hidden
-                rounded-3xl
-                border
-                border-white/10
-                bg-[#11100e]
-                transition-colors
-                duration-500
-                hover:border-[#f5b82e]/30
-              "
-            >
-              <div className="relative h-90 overflow-hidden">
+        <div className="grid gap-6 lg:grid-cols-3">
+          {products.map((product, index) => {
+            const theme = cardThemes[index % cardThemes.length];
 
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="
-                    h-full
-                    w-full
-                    object-cover
-                    transition-transform
-                    duration-700
-                    ease-out
-                    group-hover:scale-105
-                  "
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-[#0c0a09] via-transparent to-transparent opacity-70" />
-                <span
-                  className="
-                    absolute
-                    left-4
-                    top-4
-                    rounded-full
-                    border
-                    border-white/10
-                    bg-black/40
-                    px-3
-                    py-1.5
-                    text-[10px]
-                    uppercase
-                    tracking-wider
-                    text-stone-300
-                    backdrop-blur-md
-                  "
-                >
-                  {product.category}
-                </span>
-                <button
-                  className="
-                    absolute
-                    bottom-4
-                    right-4
-                    grid
-                    h-11
-                    w-11
-                    scale-90
-                    place-items-center
-                    rounded-full
-                    bg-[#f5b82e]
-                    text-[#0c0a09]
-                    opacity-0
-                    shadow-lg
-                    transition-all
-                    duration-300
-                    group-hover:scale-100
-                    group-hover:opacity-100
-                  "
-                >
-                  <ShoppingBag size={17} />
-                </button>
-              </div>
-              <div className="p-5">
-
-                <div className="flex items-start justify-between gap-3">
-
-                  <div>
-                    <h3 className="font-display text-xl text-white">
-                      {product.name}
-                    </h3>
-
-                    <p className="mt-1 text-xs text-stone-500">
-                      {product.size}
-                    </p>
+            return (
+              <Link
+                href={theme.route}
+                key={product.name}
+                className="goodness-product-card group overflow-hidden rounded-[34px] shadow-[0_22px_50px_rgba(92,63,37,0.08)] transition hover:-translate-y-1"
+                style={{ backgroundColor: theme.bg, color: theme.text }}
+              >
+                <div className="relative h-[360px] overflow-hidden">
+                  <img src={product.image} alt={product.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-transparent" />
+                  <span className="absolute left-5 top-5 rounded-full bg-white/85 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.18em] text-[#30402E] backdrop-blur-sm">
+                    {product.category}
+                  </span>
+                  <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 text-white">
+                    <div>
+                      <p className="text-xs opacity-75">{product.size}</p>
+                      <h3 className="mt-1 font-serif text-3xl">{product.name}</h3>
+                    </div>
+                    <div className="grid h-11 w-11 place-items-center rounded-full bg-white/15 backdrop-blur-md">
+                      <ArrowUpRight size={18} />
+                    </div>
                   </div>
-
-                  <p className="font-semibold text-[#ffd166]">
-                    {product.price}
-                  </p>
-
-                </div>
-                <div className="mt-5 flex items-center gap-1 text-[11px] text-[#f5b82e]">
-                  <span className="tracking-[2px]">
-                    ★★★★★
-                  </span>
-
-                  <span className="ml-1 text-stone-600">
-                    4.9
-                  </span>
-                </div>
-                <div className="mt-5 h-px w-full overflow-hidden bg-white/5">
-                  <div
-                    className="
-                      h-full
-                      w-full
-                      origin-left
-                      scale-x-0
-                      bg-[#f5b82e]
-                      transition-transform
-                      duration-500
-                      ease-out
-                      group-hover:scale-x-100
-                    "
-                  />
                 </div>
 
-              </div>
-            </div>
-          ))}
+                <div className="flex items-center justify-between gap-4 p-6">
+                  <div>
+                    <p className="text-[10px] font-bold tracking-[0.22em] opacity-65">TIYAS GOODNESS</p>
+                    <p className="mt-2 text-sm opacity-80">Thoughtfully made for everyday routines.</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-xs opacity-60">From</p>
+                    <p className="mt-1 text-xl font-bold">{product.price}</p>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
 
+        <div className="mt-10 flex items-center justify-center gap-2 rounded-[28px] bg-[#234735] px-6 py-5 text-center text-sm text-[#FFF7E8]">
+          <Sparkles size={17} className="text-[#F3C258]" />
+          A small collection by design — focused on products we can stand behind.
         </div>
       </div>
     </section>
