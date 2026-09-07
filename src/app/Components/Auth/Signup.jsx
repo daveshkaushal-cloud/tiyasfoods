@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Link from "next/link";
 import { ArrowRight, Eye, LockKeyhole, Mail, UserRound } from "lucide-react";
+import BrandLogo from "../BrandLogo";
 
 export default function Signup() {
   const pageRef = useRef(null);
@@ -61,22 +62,13 @@ export default function Signup() {
       className="relative min-h-screen overflow-hidden bg-[#0c0a09] text-stone-100"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(245,184,46,0.07),transparent_30%)]" />
-
       <div className="gold-glow absolute left-[25%] top-1/2 h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#f5b82e]/10 blur-[130px]" />
-
       <div className="ring-one absolute left-[25%] top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#f5b82e]/10" />
       <div className="ring-two absolute left-[25%] top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.05]" />
 
       <header className="relative z-20 flex items-center justify-between px-6 py-7 lg:px-12">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#f5b82e]/30 text-[#f5b82e]">
-            T
-          </div>
-
-          <div>
-            <p className="text-lg tracking-[0.15em]">TIYAS</p>
-            <p className="-mt-1 text-[7px] tracking-[0.5em] text-[#f5b82e]">FOOD</p>
-          </div>
+        <Link href="/" className="inline-flex rounded-2xl bg-[#FFF8E8] px-3 py-2 shadow-xl">
+          <BrandLogo variant="header" className="h-14 w-auto" />
         </Link>
 
         <Link href="/" className="text-[9px] tracking-[0.25em] text-stone-500 transition hover:text-[#f5b82e]">
