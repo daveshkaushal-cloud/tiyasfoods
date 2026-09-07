@@ -1,8 +1,5 @@
-
-import { motion } from 'framer-motion'
-// import { Instagram, Twitter, Facebook, Youtube } from 'lucide-react'
-
 import data from '../../../data.json'
+import BrandLogo from './BrandLogo'
 
 const cols = data.footerCols || []
 
@@ -12,23 +9,15 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 pb-16 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-linear-to-br from-amber-400 to-amber-600 font-black text-[#0c0a09]">T</span>
-              <span className="text-lg font-semibold tracking-[0.15em] text-stone-100">TIYAS <span className="text-amber-300">FOOD</span></span>
+            <div className="inline-flex rounded-[28px] bg-[#FFF8E8] p-4 shadow-[0_18px_45px_rgba(0,0,0,0.2)]">
+              <BrandLogo className="w-52 max-w-full" />
             </div>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone-400">
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-stone-400">
               Heritage A2 Desi Ghee and clean, lab-tested protein — crafted in India, trusted worldwide. Purity, always.
             </p>
-            {/* <div className="mt-6 flex gap-3">
-              {[Instagram, Twitter, Facebook, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-stone-400 transition-all hover:scale-110 hover:border-amber-400/40 hover:text-amber-300">
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div> */}
           </div>
 
-          {cols.map((c, i) => (
+          {cols.map((c) => (
             <div key={c.title}>
               <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-stone-200">{c.title}</h4>
               <ul className="space-y-3">
