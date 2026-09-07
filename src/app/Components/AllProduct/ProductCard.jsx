@@ -1,17 +1,15 @@
 "use client";
 
 import React from "react";
-import { Heart, Check, ShoppingBag, ArrowRight, Star } from "lucide-react";
+import { Check, ShoppingBag, ArrowRight, Star } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 export default function ProductCard({
     product,
-    //   wishlist,
-    //   onWishlist,
-    //   onAdd,
-    inCart=false,
-    handleAddToCart,
     onReadMore,
 }) {
+    const { addToCart, isInCart } = useCart();
+    const inCart = isInCart(product.id);
 
     return (
         <article className="product-card group rounded-[30px]">
@@ -21,15 +19,14 @@ export default function ProductCard({
                 <div className="absolute inset-x-0 bottom-0 h-36 bg-linear-to-t from-black/70 to-transparent" />
 
                 <div className="absolute bottom-5 left-5 right-5">
-
                     <button
-                      onClick={() => typeof handleAddToCart === 'function' && handleAddToCart(product)}
+                      onClick={() => addToCart(product)}
                       disabled={!product.inStock}
                       className={`flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-sm font-semibold transition ${product.inStock ? "cursor-pointer bg-[#f5b82e] text-[#11100d] hover:bg-[#ffd166] hover:shadow-lg hover:shadow-[#f5b82e]/10" : "cursor-not-allowed bg-stone-700 text-stone-400"}`}>
                         {inCart ? (
                             <>
                                 <Check size={16} />
-                                Added to Cart
+                                Add Another
                             </>
                         ) : product.inStock ? (
                             <>
@@ -69,7 +66,6 @@ export default function ProductCard({
                 <div className="mt-5 flex items-center gap-3">
                     <span className="text-xl font-semibold text-stone-100">₹{product.price.toLocaleString("en-IN")}</span>
                     <span className="text-sm text-stone-600 line-through">₹{product.oldPrice.toLocaleString("en-IN")}</span>
-                    {/* <span className="ml-auto text-[10px] font-semibold text-green-500">{discount}% OFF</span> */}
                 </div>
             </div>
         </article>
