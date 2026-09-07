@@ -17,11 +17,11 @@
       "eyebrow": "POWER • PROTEIN • PURE",
       "title": ["Fuel your", "body with", "pure"],
       "highlight": "Protein.",
-      "description": "Premium quality protein made for your everyday nutrition. Simple ingredients, great taste and nourishment you can trust.",
+      "description": "Everyday protein with a warmer, food-first identity and a simple routine-friendly experience.",
       "button": "Explore Protein",
       "price": "₹1,499",
       "size": "1kg",
-      "product": "Natural Protein",
+      "product": "Whey Protein",
       "image": "/assets/hero-section-2.jpeg"
     },
     {
@@ -41,13 +41,13 @@
   "navLinks": [
     { "label": "Goodness", "href": "/Goodness" },
     { "label": "Ghee", "href": "/Products" },
-    { "label": "Protein", "href": "/ComingSoon" },
-    { "label": "Yogurt", "href": "/ComingSoon" },
+    { "label": "Protein", "href": "/Products/whey-protein" },
+    { "label": "Yogurt", "href": "/Products/yogurt" },
     { "label": "Hung Curd", "href": "/ComingSoon" }
   ],
 
   "footerCols": [
-    { "title": "Shop", "links": ["A2 Desi Ghee", "Whey Isolate", "Vegan Protein", "Gift Boxes"] },
+    { "title": "Shop", "links": ["A2 Desi Ghee", "Whey Protein", "Fresh Yogurt", "Gift Boxes"] },
     { "title": "Company", "links": ["About Us", "Our Farms", "Lab Reports", "Careers"] },
     { "title": "Support", "links": ["Track Order", "Shipping", "Returns", "Contact"] }
   ],
@@ -65,21 +65,24 @@
       "category": "Traditional Ghee",
       "price": "₹899",
       "size": "500ml",
-      "image": "/assets/hero-section-1.jpeg"
+      "image": "/assets/hero-section-1.jpeg",
+      "href": "/Products"
     },
     {
       "name": "Fresh Yogurt",
       "category": "Farm Fresh",
       "price": "₹149",
       "size": "400g",
-      "image": "/assets/hero-section-3.jpeg"
+      "image": "/assets/hero-section-3.jpeg",
+      "href": "/Products/yogurt"
     },
     {
-      "name": "Natural Protein",
+      "name": "Whey Protein",
       "category": "Daily Nutrition",
       "price": "₹1,499",
       "size": "1kg",
-      "image": "/assets/hero-section-2.jpeg"
+      "image": "/assets/hero-section-2.jpeg",
+      "href": "/Products/whey-protein"
     }
   ],
 
