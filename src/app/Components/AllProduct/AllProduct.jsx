@@ -18,14 +18,8 @@ const products = [
     image: "/assets/hero-section-1.jpeg",
     badge: "BESTSELLER",
     description: "Traditional Bilona method A2 cow ghee",
-    fullDescription:
-      "Made using the traditional Bilona method, our A2 Bilona Ghee is carefully prepared from A2 cow milk to deliver a rich aroma, authentic taste and wholesome goodness in every spoon.",
-    benefits: [
-      "Made from A2 cow milk",
-      "Traditional Bilona preparation",
-      "Rich aroma and authentic taste",
-      "Perfect for everyday cooking",
-    ],
+    fullDescription: "Made using the traditional Bilona method, our A2 Bilona Ghee is carefully prepared from A2 cow milk to deliver a rich aroma, authentic taste and wholesome goodness in every spoon.",
+    benefits: ["Made from A2 cow milk", "Traditional Bilona preparation", "Rich aroma and authentic taste", "Perfect for everyday cooking"],
     tags: ["A2", "Natural", "Premium"],
     inStock: true,
   },
@@ -41,20 +35,14 @@ const products = [
     image: "/assets/hero-section-1.jpeg",
     badge: "POPULAR",
     description: "Pure A2 cow ghee made traditionally",
-    fullDescription:
-      "Our A2 Cow Ghee is traditionally prepared with carefully sourced A2 cow milk, giving it a naturally rich taste and aroma that works beautifully in everyday cooking.",
-    benefits: [
-      "Made from A2 cow milk",
-      "Traditionally prepared",
-      "Rich and natural flavour",
-      "Ideal for everyday use",
-    ],
+    fullDescription: "Our A2 Cow Ghee is traditionally prepared with carefully sourced A2 cow milk, giving it a naturally rich taste and aroma that works beautifully in everyday cooking.",
+    benefits: ["Made from A2 cow milk", "Traditionally prepared", "Rich and natural flavour", "Ideal for everyday use"],
     tags: ["A2", "Natural"],
     inStock: true,
   },
   {
     id: 3,
-    name: "Natural Protein",
+    name: "Whey Protein",
     category: "Protein",
     price: 1499,
     oldPrice: 1699,
@@ -62,22 +50,29 @@ const products = [
     reviews: 86,
     size: "1 kg",
     image: "/assets/hero-section-2.jpeg",
-    badge: "NEW",
-    description: "Clean protein for everyday nutrition",
-    fullDescription:
-      "A thoughtfully made protein option for everyday nutrition, designed to fit easily into your routine while keeping things simple, wholesome and convenient.",
-    benefits: [
-      "Clean protein source",
-      "Made for everyday nutrition",
-      "Easy to include in your routine",
-      "Wholesome and convenient",
-    ],
-    tags: ["Protein", "Healthy"],
+    badge: "DAILY NUTRITION",
+    description: "Everyday protein with a warmer, food-first identity",
+    href: "/Products/whey-protein",
+    inStock: true,
+  },
+  {
+    id: 4,
+    name: "Fresh Yogurt",
+    category: "Yogurt",
+    price: 149,
+    oldPrice: 179,
+    rating: 4.9,
+    reviews: 72,
+    size: "400 g",
+    image: "/assets/hero-section-3.jpeg",
+    badge: "FRESH & CREAMY",
+    description: "Fresh, creamy dairy goodness for everyday meals",
+    href: "/Products/yogurt",
     inStock: true,
   },
 ];
 
-const categories = ["All Products", "Ghee", "Protein"];
+const categories = ["All Products", "Ghee", "Protein", "Yogurt"];
 
 export default function AllProduct() {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -89,11 +84,7 @@ export default function AllProduct() {
     let result = products.filter((product) => {
       const matchesCategory = category === "All Products" || product.category === category;
       const term = search.trim().toLowerCase();
-      const matchesSearch =
-        !term ||
-        product.name.toLowerCase().includes(term) ||
-        product.category.toLowerCase().includes(term) ||
-        product.description.toLowerCase().includes(term);
+      const matchesSearch = !term || product.name.toLowerCase().includes(term) || product.category.toLowerCase().includes(term) || product.description.toLowerCase().includes(term);
       return matchesCategory && matchesSearch;
     });
 
@@ -101,7 +92,6 @@ export default function AllProduct() {
     if (sort === "price-high") result = [...result].sort((a, b) => b.price - a.price);
     if (sort === "rating") result = [...result].sort((a, b) => b.rating - a.rating);
     if (sort === "name") result = [...result].sort((a, b) => a.name.localeCompare(b.name));
-
     return result;
   }, [search, category, sort]);
 
@@ -114,26 +104,14 @@ export default function AllProduct() {
 
         <div className="relative mx-auto max-w-7xl px-6 pb-16 lg:px-8 lg:pb-20">
           <div className="mb-10 flex items-center gap-2 text-xs text-[#E7DCC6]/70">
-            <a href="/" className="transition hover:text-[#F4C25D]">Home</a>
-            <span>/</span>
-            <span className="text-[#FFF8E8]">Shop</span>
+            <a href="/" className="transition hover:text-[#F4C25D]">Home</a><span>/</span><span className="text-[#FFF8E8]">Shop</span>
           </div>
 
           <div className="grid items-end gap-12 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#F4D38A]/25 bg-[#FFF8E8]/8 px-4 py-2 text-[10px] font-semibold tracking-[0.28em] text-[#F4C25D]">
-                <Leaf size={14} /> PURE • NATURAL • YOURS
-              </div>
-
-              <h1 className="font-serif text-5xl leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-                Everyday goodness,
-                <br />
-                <span className="text-[#F4C25D]">made the slower way.</span>
-              </h1>
-
-              <p className="mt-7 max-w-2xl text-sm leading-7 text-[#E9E0D0] sm:text-base">
-                Thoughtfully made pantry staples inspired by traditional preparation, honest ingredients and the comfort of food made with care.
-              </p>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#F4D38A]/25 bg-[#FFF8E8]/8 px-4 py-2 text-[10px] font-semibold tracking-[0.28em] text-[#F4C25D]"><Leaf size={14} /> PURE • NATURAL • YOURS</div>
+              <h1 className="font-serif text-5xl leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">Everyday goodness,<br /><span className="text-[#F4C25D]">made the slower way.</span></h1>
+              <p className="mt-7 max-w-2xl text-sm leading-7 text-[#E9E0D0] sm:text-base">Thoughtfully made pantry staples inspired by traditional preparation, honest ingredients and the comfort of food made with care.</p>
             </div>
 
             <div className="rounded-[30px] border border-[#F4D38A]/20 bg-[#FFF8E8]/8 p-6 backdrop-blur-sm sm:p-7">
@@ -158,85 +136,29 @@ export default function AllProduct() {
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-xs font-semibold tracking-[0.25em] text-[#B66A3C]">OUR PANTRY</p>
-            <h2 className="mt-3 font-serif text-4xl text-[#2E3F2E] sm:text-5xl">Choose your goodness.</h2>
-            <p className="mt-3 max-w-xl text-sm leading-6 text-[#756B5F]">A focused collection with a warm, honest store experience — less catalogue, more care.</p>
-          </div>
-          <div className="rounded-full bg-[#E5EDD7] px-4 py-2 text-xs font-semibold text-[#477453]">
-            {visibleProducts.length} {visibleProducts.length === 1 ? "product" : "products"}
-          </div>
+          <div><p className="text-xs font-semibold tracking-[0.25em] text-[#B66A3C]">OUR PANTRY</p><h2 className="mt-3 font-serif text-4xl text-[#2E3F2E] sm:text-5xl">Choose your goodness.</h2><p className="mt-3 max-w-xl text-sm leading-6 text-[#756B5F]">A focused collection with a warm, honest store experience — less catalogue, more care.</p></div>
+          <div className="rounded-full bg-[#E5EDD7] px-4 py-2 text-xs font-semibold text-[#477453]">{visibleProducts.length} {visibleProducts.length === 1 ? "product" : "products"}</div>
         </div>
 
         <div className="mb-10 rounded-[28px] border border-[#DCCCAD] bg-[#FFFDF8] p-4 shadow-[0_18px_50px_rgba(94,72,43,0.06)] sm:p-5">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div className="relative w-full lg:max-w-md">
-              <Search size={17} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#887D70]" />
-              <input
-                value={search}
-                onChange={(event) => setSearch(event.target.value)}
-                placeholder="Search ghee, protein..."
-                className="h-12 w-full rounded-full border border-[#DCCCAD] bg-[#FAF5EA] pl-11 pr-4 text-sm text-[#332C25] outline-none placeholder:text-[#9A9083] transition focus:border-[#6A8B57] focus:bg-white"
-              />
-            </div>
-
+            <div className="relative w-full lg:max-w-md"><Search size={17} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#887D70]" /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search ghee, protein, yogurt..." className="h-12 w-full rounded-full border border-[#DCCCAD] bg-[#FAF5EA] pl-11 pr-4 text-sm text-[#332C25] outline-none placeholder:text-[#9A9083] transition focus:border-[#6A8B57] focus:bg-white" /></div>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <div className="flex flex-wrap gap-2">
-                {categories.map((item) => (
-                  <button
-                    key={item}
-                    onClick={() => setCategory(item)}
-                    className={`rounded-full px-4 py-2.5 text-xs font-semibold transition ${category === item ? "bg-[#477453] text-[#FFFDF7]" : "border border-[#DCCCAD] bg-[#FAF5EA] text-[#665D52] hover:border-[#A9BE8D] hover:text-[#385B3D]"}`}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-
-              <div className="relative">
-                <select
-                  value={sort}
-                  onChange={(event) => setSort(event.target.value)}
-                  className="h-11 appearance-none rounded-full border border-[#DCCCAD] bg-[#FAF5EA] px-5 pr-10 text-xs font-semibold text-[#665D52] outline-none"
-                >
-                  <option value="featured">Featured</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
-                  <option value="rating">Top Rated</option>
-                  <option value="name">Name</option>
-                </select>
-                <ChevronDown size={14} className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#887D70]" />
-              </div>
+              <div className="flex flex-wrap gap-2">{categories.map((item) => <button key={item} onClick={() => setCategory(item)} className={`rounded-full px-4 py-2.5 text-xs font-semibold transition ${category === item ? "bg-[#477453] text-[#FFFDF7]" : "border border-[#DCCCAD] bg-[#FAF5EA] text-[#665D52] hover:border-[#A9BE8D] hover:text-[#385B3D]"}`}>{item}</button>)}</div>
+              <div className="relative"><select value={sort} onChange={(event) => setSort(event.target.value)} className="h-11 appearance-none rounded-full border border-[#DCCCAD] bg-[#FAF5EA] px-5 pr-10 text-xs font-semibold text-[#665D52] outline-none"><option value="featured">Featured</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option><option value="rating">Top Rated</option><option value="name">Name</option></select><ChevronDown size={14} className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#887D70]" /></div>
             </div>
           </div>
         </div>
 
         {visibleProducts.length > 0 ? (
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-            {visibleProducts.map((product) => (
-              <ProductCard key={product.id} product={product} onReadMore={() => setSelectedProduct(product)} />
-            ))}
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
+            {visibleProducts.map((product) => <ProductCard key={product.id} product={product} onReadMore={() => setSelectedProduct(product)} />)}
           </div>
         ) : (
-          <div className="rounded-[32px] border border-dashed border-[#CDBB98] bg-[#FFF9ED] px-6 py-16 text-center">
-            <p className="font-serif text-3xl text-[#2E3F2E]">Nothing in the pantry matches that yet.</p>
-            <p className="mt-3 text-sm text-[#756B5F]">Try another search or clear your filters.</p>
-            <button onClick={() => { setSearch(""); setCategory("All Products"); setSort("featured"); }} className="mt-6 rounded-full bg-[#B66A3C] px-5 py-3 text-sm font-semibold text-white">Show all products</button>
-          </div>
+          <div className="rounded-[32px] border border-dashed border-[#CDBB98] bg-[#FFF9ED] px-6 py-16 text-center"><p className="font-serif text-3xl text-[#2E3F2E]">Nothing in the pantry matches that yet.</p><p className="mt-3 text-sm text-[#756B5F]">Try another search or clear your filters.</p><button onClick={() => { setSearch(""); setCategory("All Products"); setSort("featured"); }} className="mt-6 rounded-full bg-[#B66A3C] px-5 py-3 text-sm font-semibold text-white">Show all products</button></div>
         )}
 
-        <section className="mt-20">
-          <div className="relative overflow-hidden rounded-[38px] bg-[#D96B3F] px-6 py-16 text-center text-[#FFF8E8] sm:px-10 lg:py-20">
-            <div className="absolute -left-16 -top-20 h-60 w-60 rounded-full bg-[#F5C760]/25 blur-[80px]" />
-            <div className="absolute -right-10 bottom-0 h-52 w-52 rounded-full bg-[#6F925E]/30 blur-[70px]" />
-            <div className="relative">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#FFF8E8]/15 text-[#FFE092]"><Sparkles size={24} /></div>
-              <p className="mt-6 text-xs font-semibold tracking-[0.3em] text-[#FFE092]">MORE GOODNESS IS COMING</p>
-              <h2 className="mx-auto mt-5 max-w-2xl font-serif text-4xl leading-tight sm:text-5xl">A pantry that grows slowly, <span className="text-[#FFE092]">and thoughtfully.</span></h2>
-              <p className="mx-auto mt-5 max-w-lg text-sm leading-7 text-[#FFF1DF]">We’re working on more wholesome favourites for your everyday table. No endless catalogue — just products we’re happy to put the Tiyas name on.</p>
-            </div>
-          </div>
-        </section>
+        <section className="mt-20"><div className="relative overflow-hidden rounded-[38px] bg-[#D96B3F] px-6 py-16 text-center text-[#FFF8E8] sm:px-10 lg:py-20"><div className="absolute -left-16 -top-20 h-60 w-60 rounded-full bg-[#F5C760]/25 blur-[80px]" /><div className="absolute -right-10 bottom-0 h-52 w-52 rounded-full bg-[#6F925E]/30 blur-[70px]" /><div className="relative"><div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#FFF8E8]/15 text-[#FFE092]"><Sparkles size={24} /></div><p className="mt-6 text-xs font-semibold tracking-[0.3em] text-[#FFE092]">MORE GOODNESS IS COMING</p><h2 className="mx-auto mt-5 max-w-2xl font-serif text-4xl leading-tight sm:text-5xl">A pantry that grows slowly, <span className="text-[#FFE092]">and thoughtfully.</span></h2><p className="mx-auto mt-5 max-w-lg text-sm leading-7 text-[#FFF1DF]">We’re working on more wholesome favourites for your everyday table. No endless catalogue — just products we’re happy to put the Tiyas name on.</p></div></div></section>
       </section>
 
       {selectedProduct && <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />}
