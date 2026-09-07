@@ -6,15 +6,16 @@ import Story from "../Components/Goodness/Story";
 import NewsLetter from "../Components/Goodness/NewsLetter";
 
 const GoodnessPage = () => {
-    return (
-        <>
-            <HeroSection />
-            <TrustBar />
-            <ProductList />
-            <Process />
-            <Story />
-            <NewsLetter />
-        </>
-    )
-}
-export default GoodnessPage
+  return (
+    <main className="overflow-hidden bg-[#FFF8EB]">
+      <HeroSection />
+      <TrustBar />
+      <ProductList />
+      <Process />
+      <Story />
+      <NewsLetter />
+    </main>
+  );
+};
+
+export default GoodnessPage;
