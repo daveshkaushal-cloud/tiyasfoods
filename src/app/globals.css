@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0c0a09;
+  --surface: #15120e;
+  --surface-light: #1c1711;
+  --gold: #f5b82e;
+  --gold-light: #ffd166;
+  --cream: #f5f1e8;
+  --muted: #a8a29e;
+  --border: rgba(245, 184, 46, 0.16);
+  --font-body: "Segoe UI", Arial, Helvetica, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--cream);
+  font-family: var(--font-body);
+}
+
+.new-home {
+  font-family: var(--font-body);
+}
+
+.new-home h1,
+.new-home h2,
+.new-home h3,
+.new-home h4,
+.new-home h5,
+.new-home h6,
+.new-home .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+}
+
+.new-home p,
+.new-home span,
+.new-home a,
+.new-home button,
+.new-home li,
+.new-home input,
+.new-home textarea,
+.new-home select {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--gold);
+  color: #0c0a09;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0a09;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #80611c;
+  border-radius: 999px;
+}
+
+.font-display {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.gold-text {
+  color: var(--gold);
+}
+
+.gold-gradient {
+  background: linear-gradient(
+    135deg,
+    #ffd166 0%,
+    #f5b82e 45%,
+    #c98a16 100%
+  );
+}
+
+.glass {
+  background: rgba(12, 10, 9, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.gold-border {
+  border: 1px solid var(--border);
+}
+
+.product-card {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(245, 184, 46, 0.09),
+      transparent 55%
+    ),
+    #15120e;
+}
+
+.hero-glow {
+  background: radial-gradient(
+    circle,
+    rgba(245, 184, 46, 0.13),
+    transparent 65%
+  );
+}
+
+.section-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 184, 46, 0.35),
+    transparent
+  );
+}

@@ -1,0 +1,110 @@
+{
+  "hero": [
+    {
+      "id": 1,
+      "eyebrow": "PURE • NATURAL • NUTRITIOUS",
+      "title": ["Made with", "Care.", "Delivered with"],
+      "highlight": "Love.",
+      "description": "Farm-fresh dairy products crafted traditionally for your healthy life. Pure ingredients, honest processes and goodness you can taste.",
+      "button": "Explore Ghee",
+      "price": "₹899",
+      "size": "500ml",
+      "product": "A2 Bilona Ghee",
+      "image": "/assets/hero-section-1.jpeg"
+    },
+    {
+      "id": 2,
+      "eyebrow": "POWER • PROTEIN • PURE",
+      "title": ["Fuel your", "body with", "pure"],
+      "highlight": "Protein.",
+      "description": "Premium quality protein made for your everyday nutrition. Simple ingredients, great taste and nourishment you can trust.",
+      "button": "Explore Protein",
+      "price": "₹1,499",
+      "size": "1kg",
+      "product": "Natural Protein",
+      "image": "/assets/hero-section-2.jpeg"
+    },
+    {
+      "id": 3,
+      "eyebrow": "FRESH • CREAMY • DELICIOUS",
+      "title": ["Fresh from", "our farm", "to your"],
+      "highlight": "Home.",
+      "description": "Experience fresh, creamy dairy products made with care. Delivered fresh to bring natural goodness to your everyday meals.",
+      "button": "Explore Dairy",
+      "price": "₹199",
+      "size": "400g",
+      "product": "Hung Curd",
+      "image": "/assets/hero-section-3.jpeg"
+    }
+  ],
+
+  "navLinks": [
+    { "label": "Goodness", "href": "/Goodness" },
+    { "label": "Ghee", "href": "/Products" },
+    { "label": "Protein", "href": "/ComingSoon" },
+    { "label": "Yogurt", "href": "/ComingSoon" },
+    { "label": "Hung Curd", "href": "/ComingSoon" }
+  ],
+
+  "footerCols": [
+    { "title": "Shop", "links": ["A2 Desi Ghee", "Whey Isolate", "Vegan Protein", "Gift Boxes"] },
+    { "title": "Company", "links": ["About Us", "Our Farms", "Lab Reports", "Careers"] },
+    { "title": "Support", "links": ["Track Order", "Shipping", "Returns", "Contact"] }
+  ],
+
+  "trustBenefits": [
+    { "icon": "Leaf", "title": "100% Natural", "description": "No preservatives" },
+    { "icon": "Milk", "title": "A2 Milk", "description": "Sourced with care" },
+    { "icon": "FlaskConical", "title": "Lab Tested", "description": "Every batch verified" },
+    { "icon": "Truck", "title": "Fresh Delivery", "description": "Delivered fresh" }
+  ],
+
+  "products": [
+    {
+      "name": "A2 Bilona Ghee",
+      "category": "Traditional Ghee",
+      "price": "₹899",
+      "size": "500ml",
+      "image": "/assets/hero-section-1.jpeg"
+    },
+    {
+      "name": "Fresh Yogurt",
+      "category": "Farm Fresh",
+      "price": "₹149",
+      "size": "400g",
+      "image": "/assets/hero-section-3.jpeg"
+    },
+    {
+      "name": "Natural Protein",
+      "category": "Daily Nutrition",
+      "price": "₹1,499",
+      "size": "1kg",
+      "image": "/assets/hero-section-2.jpeg"
+    }
+  ],
+
+  "story": {
+    "eyebrow": "OUR STORY",
+    "heading": "Food should feel honest.",
+    "paragraphs": [
+      "At TIYAS FOOD, we believe the best food starts with the simplest ingredients and the most thoughtful processes.",
+      "From carefully sourced milk to traditional preparation methods, every step is designed to preserve the goodness nature intended."
+    ],
+    "image": "/assets/hero-section-3.jpeg"
+  },
+
+  "processSteps": [
+    { "number": "01", "title": "Fresh from the farm", "description": "We carefully source fresh milk from trusted farms." },
+    { "number": "02", "title": "Traditional process", "description": "Our products are crafted using time-tested traditional methods." },
+    { "number": "03", "title": "Quality tested", "description": "Every batch goes through strict quality checks." },
+    { "number": "04", "title": "Delivered fresh", "description": "From our kitchen to your doorstep with care." }
+  ],
+
+  "newsletter": {
+    "eyebrow": "STAY CONNECTED",
+    "heading": "Goodness delivered to your inbox.",
+    "description": "Get updates about new products, special offers and stories from TIYAS FOOD.",
+    "placeholder": "Enter your email",
+    "buttonText": "Subscribe"
+  }
+}
