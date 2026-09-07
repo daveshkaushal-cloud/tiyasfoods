@@ -2,9 +2,13 @@
 
 import React from "react";
 import { X, Star, Check, ShoppingBag, Truck } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 export default function ProductModal({ product, onClose }) {
+  const { addToCart, isInCart } = useCart();
+
   if (!product) return null;
+  const inCart = isInCart(product.id);
 
   return (
     <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
@@ -56,14 +60,9 @@ export default function ProductModal({ product, onClose }) {
 
             <div className="mt-7 flex flex-wrap gap-2">{product.tags.map((tag) => (<span key={tag} className="rounded-full border border-white/10 bg-white/3 px-3 py-1.5 text-[10px] text-stone-400">{tag}</span>))}</div>
 
-            <div className="mt-8 flex items-center justify-between">
-              <div className="text-right">
-                <p className="text-xs text-stone-600">Total</p>
-              </div>
-            </div>
-
-            <button className="mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-[#f5b82e] py-4 text-sm font-semibold text-[#11100d] transition hover:bg-[#ffd166]">
-              <><ShoppingBag size={17} />Add to Cart</>
+            <button onClick={() => addToCart(product)} className="mt-8 flex w-full items-center justify-center gap-2 rounded-full bg-[#f5b82e] py-4 text-sm font-semibold text-[#11100d] transition hover:bg-[#ffd166]">
+              <ShoppingBag size={17} />
+              {inCart ? "Add Another" : "Add to Cart"}
             </button>
 
             <div className="mt-5 flex items-center justify-center gap-2 text-xs text-stone-600"><Truck size={14} />Freshly prepared with care</div>
